@@ -1,0 +1,167 @@
+﻿<Window x:Class="inst.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:inst"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <TabControl>
+        <TabItem Name="Точение">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Height="10" Width="10" Fill="Black" />
+                    <TextBlock Margin="3">Точение</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+            <Grid.DataContext>
+                <local:ViewModel/>
+            </Grid.DataContext>
+                
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition MinHeight="20"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Grid.IsSharedSizeScope="True" >
+                    <DockPanel >
+
+                        <TextBlock DockPanel.Dock="Left" FontSize="30">
+                        t
+                        </TextBlock>
+                        <TextBox HorizontalAlignment="Stretch" MaxHeight="40" Text="{Binding  CuttingDepthViewModel,UpdateSourceTrigger=PropertyChanged}">
+
+                        </TextBox>
+                    </DockPanel>
+                    <DockPanel >
+
+                        <TextBlock DockPanel.Dock="Left" FontSize="30" >
+                        s
+                        </TextBlock>
+                        <TextBox HorizontalAlignment="Stretch" MaxHeight="40" Text="{Binding  FeedViewModel,UpdateSourceTrigger=PropertyChanged}">
+
+                        </TextBox>
+                    </DockPanel>
+                    <DockPanel >
+
+                        <TextBlock DockPanel.Dock="Left" FontSize="30">
+                        T
+                        </TextBlock>
+                        <TextBox HorizontalAlignment="Stretch" MaxHeight="40" Text="{Binding  TenacityViewModel,UpdateSourceTrigger=PropertyChanged}">
+
+                        </TextBox>
+                    </DockPanel>
+                    <DockPanel >
+
+                        <TextBlock DockPanel.Dock="Left" FontSize="30">
+                        K
+                        </TextBlock>
+                        <TextBox HorizontalAlignment="Stretch" MaxHeight="40" Text="{Binding  CoefKViewModel,UpdateSourceTrigger=PropertyChanged}">
+
+                        </TextBox>
+                    </DockPanel>
+                    <DockPanel >
+
+                        <TextBlock DockPanel.Dock="Left" FontSize="30">
+                        C
+                        </TextBlock>
+                        <TextBox HorizontalAlignment="Stretch" MaxHeight="40" Text="{Binding  CoefCViewModel,UpdateSourceTrigger=PropertyChanged}">
+
+                        </TextBox>
+                    </DockPanel>
+                    
+                    <DockPanel >
+
+                        <TextBlock DockPanel.Dock="Left" FontSize="30">
+                        m
+                        </TextBlock>
+                        <TextBox HorizontalAlignment="Stretch" MaxHeight="40" Text="{Binding  MViewModel,UpdateSourceTrigger=PropertyChanged}">
+
+                        </TextBox>
+                    </DockPanel>
+                    <DockPanel >
+
+                        <TextBlock DockPanel.Dock="Left" FontSize="30">
+                        x
+                        </TextBlock>
+                        <TextBox HorizontalAlignment="Stretch" MaxHeight="40" Text="{Binding  XViewModel,UpdateSourceTrigger=PropertyChanged}">
+
+                        </TextBox>
+                    </DockPanel>
+                    <DockPanel >
+
+                        <TextBlock DockPanel.Dock="Left" FontSize="30">
+                        y
+                        </TextBlock>
+                        <TextBox HorizontalAlignment="Stretch" MaxHeight="40" Text="{Binding  YViewModel,UpdateSourceTrigger=PropertyChanged}">
+
+                        </TextBox>
+                    </DockPanel>
+                </StackPanel>
+                <Button Grid.Row="1" Content="{Binding ResultViewModel,UpdateSourceTrigger=PropertyChanged}" Command="{x:Static local:ViewModel.PressCommand}" CommandParameter="{Binding}">
+                    <Button.ToolTip>
+                        <ToolTip Height="auto" Width="auto">
+
+                            <Image Height="auto" Width="auto" Source="Resources/gg.png" />
+
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+
+            </Grid>
+        </TabItem>
+        <TabItem Name="Фрезерование">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Height="10" Width="10" Fill="Black" />
+                    <TextBlock Margin="3">Фрезирование</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.DataContext>
+                    <local:ViewModel/>
+                </Grid.DataContext>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition MinHeight="20"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Grid.IsSharedSizeScope="True">
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox  Height="50" VerticalAlignment="Top" ItemsSource="{Binding Models}" SelectedItem="{Binding Selectedmodel}" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate >
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Count}"/>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <ComboBox  Height="50" VerticalAlignment="Top" ItemsSource="{Binding Models}" SelectedItem="{Binding Selectedmodel}" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate >
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Count}"/>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <ComboBox  Height="50" VerticalAlignment="Top" ItemsSource="{Binding Models}" SelectedItem="{Binding Selectedmodel}" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate >
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Count}"/>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+    </TabControl>
+
+</Window>
